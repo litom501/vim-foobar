@@ -1,0 +1,262 @@
+Describe Test for foobar
+    " foo bar
+    It is a foo bar by ordinal test 1
+        let expected = 'foo'
+
+        let acctual = foobar#foobar('1')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('1')
+        Assert Equals(acctual, expected)
+    End
+    It is a foo bar by ordinal test 2
+        let expected = 'bar'
+        let acctual = foobar#foobar('2')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('2')
+        Assert Equals(acctual, expected)
+    End
+    It is a foo bar by ordinal test 3
+        let expected = 'baz'
+        let acctual = foobar#foobar('3')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('3')
+        Assert Equals(acctual, expected)
+    End
+
+    It is a foo bar by ordinal test 4
+        let expected = ''
+        let acctual = foobar#foobar('0')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('0')
+        Assert Equals(acctual, expected)
+    End
+
+    It is a foo bar by ordinal test 5
+        let expected = ''
+        let acctual = foobar#foobar('100')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('100')
+        Assert Equals(acctual, expected)
+    End
+
+    It is a foo bar next test 1
+        let expected = 'bar'
+        let acctual = foobar#foobar_next('foo')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('foo')
+        Assert Equals(acctual, expected)
+    End
+
+    It is a foo bar next test 2
+        let expected = 'baz'
+        let acctual = foobar#foobar_next('bar')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('bar')
+        Assert Equals(acctual, expected)
+    End
+    It is a foo bar next test 3
+        let expected = 'qux'
+        let acctual = foobar#foobar_next('baz')
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('baz')
+        Assert Equals(acctual, expected)
+    End
+    It is a foo bar get ordinal test 1
+        let expected = 1
+        let acctual = foobar#get_foobar_ordinal('foo')
+        Assert Equals(acctual, expected)
+
+    End
+    It is a foo bar get ordinal test 2
+        let expected = 2
+        let acctual = foobar#get_foobar_ordinal('bar')
+        Assert Equals(acctual, expected)
+
+    End
+    It is a foo bar get ordinal test 3
+        let expected = 3
+        let acctual = foobar#get_foobar_ordinal('baz')
+        Assert Equals(acctual, expected)
+    End
+    It is a foo bar get ordinal test 4
+        let expected = 0
+        let acctual = foobar#get_foobar_ordinal('bob')
+        Assert Equals(acctual, expected)
+    End
+    " alice bob
+    It is a alice bob test 1
+        let expected = 'Alice'
+
+        let acctual = foobar#people('a', 0)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('a')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 2
+        let expected = 'Bob'
+
+        let acctual = foobar#people('b', 0)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('b')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 3
+        let expected = 'Carol'
+
+        let acctual = foobar#people('c', 0)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('c')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 4
+        let expected = 'Alice'
+
+        let acctual = foobar#people('a', 0)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('a1')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 5
+        let expected = 'Bob'
+
+        let acctual = foobar#people('b', 0)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('b1')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 6
+        let expected = 'Carol'
+
+        let acctual = foobar#people('c', 0)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('c1')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 7
+        let expected = 'Albert'
+
+        let acctual = foobar#people('a', 1)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('a2')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 8
+        let expected = 'Brenda'
+
+        let acctual = foobar#people('b', 1)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('b2')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 9
+        let expected = 'Carl'
+
+        let acctual = foobar#people('c', 1)
+        Assert Equals(acctual, expected)
+
+        let acctual = foobar#query('c2')
+        Assert Equals(acctual, expected)
+    End
+    It is a alice bob test 10
+        let expected = ''
+
+        try
+            call foobar#people('a', 2)
+            Assert Fail
+        catch
+        endtry
+
+        try
+            call foobar#query('a3')
+            Assert Fail
+        catch
+        endtry
+    End
+    It is a lorem ipsum test 1
+        let expected = "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident,\nsunt in culpa qui officia deserunt mollit anim id est laborum.\n\nCurabitur pretium tincidunt lacus.\nNulla gravida orci a odio.\nNullam varius,\nturpis et commodo pharetra,\nest eros bibendum elit,\nnec luctus magna felis sollicitudin mauris.\nInteger in mauris eu nibh euismod gravida.\nDuis ac tellus et risus vulputate vehicula.\nDonec lobortis risus a elit.\nEtiam tempor.\nUt ullamcorper,\nligula eu tempor congue,\neros est euismod turpis,\nid tincidunt sapien risus a quam.\nMaecenas fermentum consequat mi.\nDonec fermentum.\nPellentesque malesuada nulla a mi.\nDuis sapien sem,\naliquet nec,\ncommodo eget,\nconsequat quis,\nneque.\nAliquam faucibus,\nelit ut dictum aliquet,\nfelis nisl adipiscing sapien,\nsed malesuada diam lacus eget erat.\nCras mollis scelerisque nunc.\nNullam arcu.\nAliquam consequat.\nCurabitur augue lorem,\ndapibus quis,\nlaoreet et,\npretium ac,\nnisi.\nAenean magna nisl,\nmollis quis,\nmolestie eu,\nfeugiat in,\norci.\nIn hac habitasse platea dictumst."
+"        let expected = 'Lorem ipsum dolor sit amet,'
+        let acctual = foobar#lorem_ipsum(0)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum test 2
+        let expected = "Lorem ipsum dolor sit amet,"
+        let acctual = foobar#lorem_ipsum(1)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum test 3
+        let expected = "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,"
+        let acctual = foobar#lorem_ipsum(2)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum test 4
+        let expected = foobar#lorem_ipsum(0)
+        let acctual = foobar#lorem_ipsum(48)
+        Assert NotEquals(acctual, expected)
+    End
+    It is a lorem ipsum test 5
+        let expected = foobar#lorem_ipsum(0)
+        let acctual = foobar#lorem_ipsum(49)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum test 6
+        let expected = foobar#lorem_ipsum(0)
+        let acctual = foobar#lorem_ipsum(50)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 1
+        let expected = foobar#query('li')
+        let acctual = foobar#lorem_ipsum(0)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 2
+        let expected = foobar#query('li0')
+        let acctual = foobar#lorem_ipsum(0)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 3
+        let expected = foobar#query('li1')
+        let acctual = foobar#lorem_ipsum(1)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 4
+        let expected = foobar#query('li2')
+        let acctual = foobar#lorem_ipsum(2)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 5
+        let expected = foobar#query('lorem')
+        let acctual = foobar#lorem_ipsum(0)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 6
+        let expected = foobar#query('lorem1')
+        let acctual = foobar#lorem_ipsum(1)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 7
+        let expected = foobar#query('loremipsum')
+        let acctual = foobar#lorem_ipsum(0)
+        Assert Equals(acctual, expected)
+    End
+    It is a lorem ipsum qury test 6
+        let expected = foobar#query('loremipsum1')
+        let acctual = foobar#lorem_ipsum(1)
+        Assert Equals(acctual, expected)
+    End
+End
